@@ -42,6 +42,14 @@ WatchPower::~WatchPower(){
     refSer->end();
 }
 
+void WatchPower::Setup(int MBData[], unsigned int regs[], int NrRegs)
+{
+	Nr_Regs = NrKregs;
+	kregnums = kregs;
+	Kam_Data = KamData;
+	kamSer.begin(Baudrate);
+}
+
 /* CRC-CCITT (XModem)
 * Source: http://web.mit.edu/6.115/www/amulet/xmodem.htm */
 uint16_t WatchPower::calculateCRC(const char *ptr, int count){
@@ -179,6 +187,20 @@ void WatchPower::parseQPIGS(const char *buffer){
     solarVoltage.flt            = atof(solarVoltage.str);
     batteryVoltageSCC.flt       = atof(batteryVoltageSCC.str);
     batteryDischargeCurrent.flt = atof(batteryDischargeCurrent.str);
+	
+    gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
+	gridVoltage.decInt	= (int)((gridVoltage.flt * 10) + 0.5);
+	gridFreq.decInt		= (int)((gridFreq.flt * 10) + 0.5);
+	gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
+	gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
+	gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
+	gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
+	gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
+	gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
+	gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
+	gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
+	gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
+	gridVoltage.decInt		= (int)((gridVoltage.flt * 10) + 0.5);
 
     /* Parse status */
     status.status.byte = 0;
