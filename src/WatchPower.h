@@ -46,6 +46,7 @@ public:
     struct floatEntry{
         char str[10];
         float flt;
+        int decInt;
     };
 
     struct statusEntry{
