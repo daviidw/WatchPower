@@ -6,6 +6,7 @@
 #include "Arduino.h"
 #include "Particle.h"
 #include <stdint.h>
+#include <AltSoftSerial.h>
 
 #define CRC_HIGH_BYTE( crc )   ((crc) >> 8) & 0xFF
 #define CRC_LOW_BYTE( crc )    (crc) & 0xFF
@@ -176,6 +177,28 @@ public:
     char firmwareVerSecondary[9];
 
     flagEntry flags;
+    
+    enum InverterRegisters
+    {
+        gridVoltage,
+        gridFreq,
+        outputVoltage,
+        outputFreq,
+        outputPowerApparent,
+        outputPowerActive,
+        loadPercent,
+        busVoltage,
+        batteryVoltage,
+        batteryCurrent,
+        batteryCapacity,
+        temperature,
+        solarCurrent,
+        solarVoltage,
+        batteryVoltageSCC,
+        batteryDischargeCurrent,
+        status,
+        warnings
+    };
 
     /* QMODE */
     char mode;
