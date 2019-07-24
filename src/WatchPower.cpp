@@ -3,6 +3,20 @@
 
 #include "WatchPower.h"
 
+typedef enum State
+{
+	Init,
+	PrepareSend,
+	Transmit,
+	FinishTransmit,
+	Wait,
+	Recieve,
+	Decode1,
+	Decode2,
+	Decode3,
+	Done
+}State;
+
 WatchPower::WatchPower(HardwareSerial &_refSer){
     refSer = &_refSer;
 
